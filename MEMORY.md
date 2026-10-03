@@ -3,9 +3,8 @@
 Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo que ya no aporte.
 
 ## Estado actual
-- Spec 001 completa; plan en `specs/001-heat-map/plan.md` (logica.js puro +
-tests node --test con fs/vm, grid ul/li, repintado en mostrar()). Listo
-para implementar tras tu visto bueno.
+- Spec 001 completa + plan + `tasks.md` (7 tareas: lógica→tests→UI→verificación).
+Listo para implementar T1 tras tu visto bueno.
 - v1 + mejor racha + fecha destacada + total semanal + días del mes + diseño cuaderno:
 registrar sesiones, racha actual, mejor racha, minutos semanales, días del mes y lista.
 - Datos en localStorage, clave `diario-estudio-sesiones`.
