@@ -28,6 +28,7 @@ móvil).
 - Si la tarea o el plan son incorrectos o imposibles, PARA y explícalo. No improvises una
 solución distinta.
 - Si es la última tarea de la spec, actualiza MEMORY.md.
+
 ## Respuesta
 Devuelve:
 1. Tarea completada y RF que cubre.
