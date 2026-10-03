@@ -3,6 +3,8 @@
 Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo que ya no aporte.
 
 ## Estado actual
+- Estructura front-end simple: `index.html` + `css/` + `js/` + `tests/`,
+verificada (27 tests en verde, Chrome sin errores).
 - Spec 002 terminada: objetivo semanal con meta propia, 27 tests en verde,
 verificado en Chrome a 375 px (progreso, estados, error, consola limpia).
 - Spec 001 terminada: mapa de calor con 12 semanas, 19 tests en verde,

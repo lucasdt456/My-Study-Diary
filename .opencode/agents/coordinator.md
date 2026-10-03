@@ -15,6 +15,9 @@ permissions:
         resource: "*"
         effect: deny
     -   action: subagent
+        resource: "*"
+        effect: deny
+    -   action: subagent
         resource: "planner"
         effect: allow
     -   action: subagent

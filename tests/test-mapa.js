@@ -5,7 +5,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 // Load the real browser logic (plain script, no modules so file:// keeps working).
-const code = fs.readFileSync(path.join(__dirname, "logica.js"), "utf8");
+const code = fs.readFileSync(path.join(__dirname, "..", "js", "logica.js"), "utf8");
 const context = {};
 vm.createContext(context);
 vm.runInContext(code, context);

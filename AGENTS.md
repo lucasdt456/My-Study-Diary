@@ -6,7 +6,9 @@ programar.
 
 ## Stack y estructura
 - HTML, CSS y JavaScript puros: sin frameworks, librerías, npm, bundler ni build.
-- `index.html` (estructura), `styles.css` (estilos), `app.js` (lógica y datos).
+- `index.html` (estructura y entrada con doble clic), `css/styles.css` (estilos),
+`js/app.js` (interfaz y datos), `js/logica.js` (funciones puras) y
+`tests/test-*.js` (pruebas con `node --test`).
 - Debe funcionar abriendo `index.html` con doble clic (`file://`): nada de módulos ES
 (`type="module"`), `fetch` a archivos locales ni nada que requiera servidor.
 
