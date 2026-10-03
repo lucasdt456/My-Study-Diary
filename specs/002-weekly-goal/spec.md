@@ -1,5 +1,5 @@
 # Spec 002 — Objetivo semanal
-Estado: borrador
+Estado: aprobada
 
 ## Contexto y objetivo
 El Diario de Estudio ya muestra los minutos estudiados en la semana actual, pero no permite fijar una meta. Sin objetivo, el número semanal informa poco y motiva menos.
