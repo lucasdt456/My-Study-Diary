@@ -28,10 +28,11 @@ pasados sin estudio para no confundir "aún no llega" con "no estudié".
 
 ## Requisitos funcionales
 
-- **RF-1 — Ventana de 12 semanas**: el mapa muestra los días de las últimas
-12 semanas, terminando en el día actual.
+- **RF-1 — Ventana de 12 semanas naturales**: el mapa muestra 12 semanas
+naturales de lunes a domingo: la semana actual más las 11 anteriores.
   - *Criterio (EARS, evento)*: Cuando se carga la página, el sistema deberá
-mostrar un día por cada fecha de la ventana de 12 semanas que termina hoy.
+mostrar un día por cada fecha de esas 12 semanas, hasta el domingo de la
+semana actual (los días posteriores a hoy se atenúan según RF-4).
 - **RF-2 — Minutos por día**: los minutos de un día son la suma de todas sus
 sesiones.
   - *Criterio (EARS, ubicuo)*: El sistema deberá sumar los minutos de todas
@@ -51,8 +52,9 @@ ventana se muestran apagados, sin nivel de intensidad.
   - *Criterio (EARS, estado)*: Mientras una fecha sea posterior a hoy, el
 sistema deberá mostrarla atenuada y no aplicarle ningún nivel de intensidad,
 aunque tenga sesiones registradas.
-- **RF-5 — Leyenda en español**: el mapa incluye una leyenda que explica los
-4 niveles (vacío, suave, medio, intenso).
+- **RF-5 — Leyenda en español**: el mapa incluye una leyenda con los
+4 niveles usando solo etiquetas (vacío, suave, medio, intenso), sin rangos
+numéricos.
   - *Criterio (EARS, ubicuo)*: El sistema deberá mostrar siempre la leyenda
 junto al mapa con los 4 niveles y sus textos en español.
 - **RF-6 — Solo visual**: las celdas no tienen tooltip, clic ni detalle por
@@ -60,6 +62,10 @@ día; toda la información sigue estando en la lista de sesiones.
   - *Criterio (EARS, no deseado)*: Si el usuario interactúa con una celda
 (pasar el cursor, tocarla), el sistema no deberá mostrar información
 adicional ni navegar a otra vista.
+- **RF-7 — Posición**: el mapa se muestra debajo de los marcadores de racha.
+  - *Criterio (EARS, evento)*: Cuando se carga la página, el sistema deberá
+mostrar el mapa de calor debajo de los marcadores de racha actual y mejor
+racha.
 
 ## Requisitos no funcionales
 
@@ -101,7 +107,7 @@ sesiones.
 
 ## Criterios de finalización
 
-- Todos los criterios de aceptación de RF-1 a RF-6 se cumplen.
+- Todos los criterios de aceptación de RF-1 a RF-7 se cumplen.
 - Los casos límite se comportan como se describe.
 - La página no muestra errores en la consola.
 - El mapa se revisa en vista móvil de 375 px y es legible sin desplazamiento
@@ -110,10 +116,7 @@ lateral.
 
 ## Dudas abiertas
 
-- [NECESITA ACLARACIÓN] Anclaje de la ventana: ¿12 semanas naturales de
-lunes a domingo (la actual más las 11 anteriores) o exactamente los últimos
-84 días terminando hoy?
-- [NECESITA ACLARACIÓN] Posición en la página: ¿el mapa va encima o debajo
-de los marcadores de racha?
-- [NECESITA ACLARACIÓN] Formato de la leyenda: ¿muestra los rangos numéricos
-("1–29", "30–59", "60+") o solo etiquetas ("suave", "medio", "intenso")?
+Sin dudas abiertas: las tres iniciales se resolvieron el 03/10/2026
+(ventana = 12 semanas naturales lun–dom; posición = debajo de los
+marcadores; leyenda = solo etiquetas) y están recogidas en RF-1, RF-5
+y RF-7.

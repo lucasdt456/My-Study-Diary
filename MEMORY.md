@@ -3,8 +3,8 @@
 Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo que ya no aporte.
 
 ## Estado actual
-- Spec 001 (mapa de calor, 12 semanas) redactada en `specs/001-heat-map/spec.md`;
-pendiente aclarar anclaje de ventana, posición y formato de leyenda.
+- Spec 001 (mapa de calor) completa y sin dudas: 12 semanas naturales lun–dom,
+debajo de los marcadores, leyenda con solo etiquetas. Lista para el plan.
 - v1 + mejor racha + fecha destacada + total semanal + días del mes + diseño cuaderno:
 registrar sesiones, racha actual, mejor racha, minutos semanales, días del mes y lista.
 - Datos en localStorage, clave `diario-estudio-sesiones`.
