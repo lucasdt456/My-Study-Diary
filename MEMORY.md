@@ -12,7 +12,8 @@ verificado en Chrome a 375 px (progreso, estados, error, consola limpia).
 - Spec 001 terminada: mapa de calor con 12 semanas, 19 tests en verde,
 verificado en Chrome a 375 px.
 - Base: racha, mejor racha, minutos semanales, días del mes y lista; clave
-`diario-estudio-sesiones`; repo en `main`.
+`diario-estudio-sesiones`; repo en `main` publicado en GitHub
+(`lucasdt456/My-Study-Diary`, rama `main` con upstream).
 
 ## Decisiones (y por qué)
 - Sin backend ni dependencias: cualquiera debe poder abrirlo con doble clic.
