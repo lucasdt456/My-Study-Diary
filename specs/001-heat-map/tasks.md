@@ -6,7 +6,7 @@ Nada de atajos: prohibido avanzar con tests en rojo.
 
 ## Fase 1 — Lógica pura y tests
 
-- [ ] **T1 — Ventana de 12 semanas (`mondayOfWeek`, `weekWindow`)**. RF: RF-1.
+- [x] **T1 — Ventana de 12 semanas (`mondayOfWeek`, `weekWindow`)**. RF: RF-1.
   Hecho cuando: `node --test test-mapa.js` está en verde con casos de lunes
   de semana dada, ventana de 84 días que empieza en lunes, cruce de año y
   `today` en domingo sin futuros.
