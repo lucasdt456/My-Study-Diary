@@ -1,5 +1,8 @@
 # Diario de Estudio 📚
 
+![OpenCode](https://img.shields.io/badge/opencode-%23000000.svg?style=for-the-badge&logo=opencode&logoColor=ffffff)
+
+
 Web sencilla para registrar sesiones de estudio y motivarte viendo tu racha
 de días seguidos, tu mapa de calor y tu objetivo semanal.
 
