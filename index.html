@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario de Estudio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="cabecera">
+      <h1>Diario de Estudio</h1>
+      <p class="subtitulo">Pequeñas sesiones, constancia diaria.</p>
+    </header>
+
+    <section class="racha">
+      <div class="racha-principal">
+        <p class="racha-etiqueta">Racha actual 🔥</p>
+        <p class="racha-numero"><span id="racha">0</span> <span class="racha-dias">días</span></p>
+      </div>
+      <ul class="estadisticas">
+        <li>
+          <span class="dato-etiqueta">Mejor racha 🏆</span>
+          <span class="dato-valor"><span id="mejor-racha">0</span> días</span>
+        </li>
+        <li>
+          <span class="dato-etiqueta">Esta semana 📚</span>
+          <span class="dato-valor"><span id="minutos-semana">0</span> min</span>
+        </li>
+        <li>
+          <span class="dato-etiqueta">Este mes 🗓️</span>
+          <span class="dato-valor"><span id="dias-mes">0</span> días</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Nueva sesión</h2>
+      <form id="formulario">
+        <label for="fecha">📅 Fecha</label>
+        <input type="date" id="fecha" name="fecha" class="campo-fecha" required>
+
+        <label for="tema">Tema</label>
+        <input type="text" id="tema" name="tema" placeholder="Por ejemplo: Matemáticas" required>
+
+        <label for="minutos">Minutos</label>
+        <input type="number" id="minutos" name="minutos" min="1" step="1" placeholder="Por ejemplo: 30" required>
+
+        <p class="error" id="error" hidden></p>
+
+        <button type="submit">Guardar sesión</button>
+      </form>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Sesiones</h2>
+      <ul id="lista"></ul>
+      <p class="vacio" id="vacio">Todavía no hay sesiones. Registra la primera.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
