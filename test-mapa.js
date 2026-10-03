@@ -50,6 +50,52 @@ describe("minutesPerDay", () => {
     const total = minutesPerDay([{ fecha: "2026-10-01", tema: "A", minutos: 0 }]);
     assert.equal(total["2026-10-01"], 0);
   });
+});
+
+describe("heatmapData", () => {
+  const sessions = [
+    { fecha: "2026-10-03", tema: "A", minutos: 65 },
+    { fecha: "2026-10-02", tema: "B", minutos: 10 },
+    { fecha: "2026-10-01", tema: "C", minutos: 30 },
+    { fecha: "2026-10-01", tema: "D", minutos: 15 },
+    { fecha: "2026-10-10", tema: "Futura", minutos: 60 },
+  ];
+
+  it("returns one cell per day of the 12 weeks", () => {
+    const cells = heatmapData(sessions, "2026-10-03");
+    assert.equal(cells.length, 84);
+    assert.equal(cells[0].date, "2026-07-13");
+    assert.equal(cells[83].date, "2026-10-04");
+  });
+
+  it("assigns levels from daily minutes", () => {
+    const cells = heatmapData(sessions, "2026-10-03");
+    const byDate = Object.fromEntries(cells.map((c) => [c.date, c]));
+    assert.equal(byDate["2026-10-03"].level, "intenso");
+    assert.equal(byDate["2026-10-02"].level, "suave");
+    assert.equal(byDate["2026-10-01"].level, "medio");
+    assert.equal(byDate["2026-10-01"].minutes, 45);
+  });
+
+  it("marks future days even when they hold sessions", () => {
+    const cells = heatmapData(
+      [{ fecha: "2026-10-04", tema: "Futura", minutos: 60 }],
+      "2026-10-03"
+    );
+    const sunday = cells.find((c) => c.date === "2026-10-04");
+    assert.equal(sunday.level, "futuro");
+  });
+
+  it("paints an empty window with empty levels", () => {
+    const cells = heatmapData([], "2026-10-03");
+    assert.ok(cells.every((c) => (c.date > "2026-10-03" ? c.level === "futuro" : c.level === "vacio")));
+  });
+
+  it("has no future cells when today is Sunday", () => {
+    const cells = heatmapData([], "2026-10-04");
+    assert.ok(cells.every((c) => c.level === "vacio"));
+  });
+});
 
   it("skips sessions with unreadable dates", () => {
     const total = minutesPerDay([
@@ -61,7 +107,6 @@ describe("minutesPerDay", () => {
     // carry a different prototype and strict comparison would fail.
     assert.deepEqual({ ...total }, { "2026-10-01": 10 });
   });
-});
 
 describe("mondayOfWeek", () => {
   it("returns the same day when it is already Monday", () => {

@@ -74,6 +74,20 @@ function levelForMinutes(minutes) {
   return "vacio";
 }
 
+// Builds one cell per day of the 12 weeks: { date, minutes, level }.
+// Days after "today" are marked "futuro" instead of a level,
+// even when they hold sessions.
+function heatmapData(sessions, today) {
+  const minutes = minutesPerDay(sessions);
+  return weekWindow(today).map(function (date) {
+    if (date > today) {
+      return { date: date, minutes: 0, level: "futuro" };
+    }
+    const dayMinutes = minutes[date] || 0;
+    return { date: date, minutes: dayMinutes, level: levelForMinutes(dayMinutes) };
+  });
+}
+
 // Returns the 84 days ("YYYY-MM-DD") of the 12 natural weeks
 // (current week plus the 11 previous ones), Monday to Sunday.
 function weekWindow(today) {

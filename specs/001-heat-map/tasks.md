@@ -14,7 +14,7 @@ Nada de atajos: prohibido avanzar con tests en rojo.
   Hecho cuando: tests en verde con bordes 0/1/29/30/59/60, suma del mismo día
   (20+15→medio), sesión de 0 min→vacío, formatos heredados y fecha ilegible
   excluida sin errores.
-- [ ] **T3 — Datos del mapa (`heatmapData`)**. RF: RF-1, RF-2, RF-3, RF-4.
+- [x] **T3 — Datos del mapa (`heatmapData`)**. RF: RF-1, RF-2, RF-3, RF-4.
   Hecho cuando: tests en verde con 84 celdas, días futuros marcados aunque
   tengan sesiones, sesiones futuras que no suman, hoy sin sesiones en vacío y
   ventana sin sesiones sin errores.
