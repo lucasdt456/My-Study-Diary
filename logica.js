@@ -27,6 +27,53 @@ function mondayOfWeek(dateString) {
   return formatLocalDay(date);
 }
 
+// Tells whether a text is a real calendar day ("YYYY-MM-DD" in local time).
+function isRealDay(text) {
+  if (typeof text !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+    return false;
+  }
+  return formatLocalDay(parseLocalDay(text)) === text;
+}
+
+// Reads the day of a session. Accepts current and legacy field names.
+function sessionDay(session) {
+  return session.fecha || session.date;
+}
+
+// Reads the minutes of a session. Accepts current and legacy field names.
+function sessionMinutes(session) {
+  const value = Number(session.minutos ?? session.minutes);
+  return Number.isFinite(value) ? value : 0;
+}
+
+// Adds up the minutes of every day: { "YYYY-MM-DD": minutes }.
+// Sessions with unreadable dates are skipped; stored data is never changed.
+function minutesPerDay(sessions) {
+  const total = {};
+  sessions.forEach(function (session) {
+    const day = sessionDay(session);
+    if (!isRealDay(day)) {
+      return;
+    }
+    total[day] = (total[day] || 0) + sessionMinutes(session);
+  });
+  return total;
+}
+
+// Maps daily minutes to an intensity level.
+function levelForMinutes(minutes) {
+  if (minutes >= 60) {
+    return "intenso";
+  }
+  if (minutes >= 30) {
+    return "medio";
+  }
+  if (minutes >= 1) {
+    return "suave";
+  }
+  return "vacio";
+}
+
 // Returns the 84 days ("YYYY-MM-DD") of the 12 natural weeks
 // (current week plus the 11 previous ones), Monday to Sunday.
 function weekWindow(today) {

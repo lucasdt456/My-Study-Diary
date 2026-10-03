@@ -10,7 +10,7 @@ Nada de atajos: prohibido avanzar con tests en rojo.
   Hecho cuando: `node --test test-mapa.js` está en verde con casos de lunes
   de semana dada, ventana de 84 días que empieza en lunes, cruce de año y
   `today` en domingo sin futuros.
-- [ ] **T2 — Minutos y niveles (`minutesPerDay`, `levelForMinutes` )**. RF: RF-2, RF-3.
+- [x] **T2 — Minutos y niveles (`minutesPerDay`, `levelForMinutes` )**. RF: RF-2, RF-3.
   Hecho cuando: tests en verde con bordes 0/1/29/30/59/60, suma del mismo día
   (20+15→medio), sesión de 0 min→vacío, formatos heredados y fecha ilegible
   excluida sin errores.
