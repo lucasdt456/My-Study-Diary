@@ -6,7 +6,7 @@ Prohibido avanzar con tests en rojo.
 
 ## Fase 1 — Lógica pura y tests
 
-- [ ] **T1 — Minutos semanales (`weeklyMinutes`)**. RF: RF-4, RF-6, RF-7.
+- [x] **T1 — Minutos semanales (`weeklyMinutes`)**. RF: RF-4, RF-6, RF-7.
 - Hecho cuando: `node --test test-objetivo.js` está en verde con suma
 lunes–hoy, exclusión de domingo anterior/futuras/ilegibles, semana vacía a 0
 y `today` en lunes con un solo día.

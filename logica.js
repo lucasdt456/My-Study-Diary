@@ -74,6 +74,33 @@ function levelForMinutes(minutes) {
   return "vacio";
 }
 
+// Adds up the minutes studied from the Monday of "today" to "today".
+// Future and unreadable dates never count.
+function weeklyMinutes(sessions, today) {
+  const monday = mondayOfWeek(today);
+  const minutes = minutesPerDay(sessions);
+  let total = 0;
+  Object.keys(minutes).forEach(function (day) {
+    if (day >= monday && day <= today) {
+      total = total + minutes[day];
+    }
+  });
+  return total;
+}
+
+// Tells whether a value is a valid weekly goal: integer from 1 to 10080.
+function isValidGoal(value) {
+  return Number.isInteger(value) && value >= 1 && value <= 10080;
+}
+
+// Describes the goal state: { done, remaining }.
+function goalStatus(minutes, goal) {
+  if (minutes >= goal) {
+    return { done: true, remaining: 0 };
+  }
+  return { done: false, remaining: goal - minutes };
+}
+
 // Builds one cell per day of the 12 weeks: { date, minutes, level }.
 // Days after "today" are marked "futuro" instead of a level,
 // even when they hold sessions.
