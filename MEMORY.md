@@ -3,6 +3,8 @@
 Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo que ya no aporte.
 
 ## Estado actual
+- Revisión completa 03/10: 27 tests en verde; Chrome verifica rachas,
+semanales, objetivo, mapa, errores de formulario y consola limpia a 375 px.
 - Estructura front-end simple: `index.html` + `css/` + `js/` + `tests/`,
 verificada (27 tests en verde, Chrome sin errores).
 - Spec 002 terminada: objetivo semanal con meta propia, 27 tests en verde,
