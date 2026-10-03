@@ -21,22 +21,22 @@ Nada de atajos: prohibido avanzar con tests en rojo.
 
 ## Fase 2 — Interfaz
 
-- [ ] **T4 — Sección HTML (mapa + leyenda) en su posición**. RF: RF-5, RF-7, RF-8.
+- [x] **T4 — Sección HTML (mapa + leyenda) en su posición**. RF: RF-5, RF-7, RF-8.
   Hecho cuando: el snapshot de DevTools muestra la sección inmediatamente
   debajo de la tarjeta de marcadores y encima del formulario, con la leyenda
   de 4 etiquetas más día futuro, todo en español.
-- [ ] **T5 — Estilos (grid, 5 estados, móvil)**. RF: RF-3, RF-4, RF-5.
+- [x] **T5 — Estilos (grid, 5 estados, móvil)**. RF: RF-3, RF-4, RF-5.
   Hecho cuando: captura a 375 px muestra 12 columnas × 7 filas sin
   desplazamiento lateral, niveles distinguibles y futuros con borde
   discontinuo distinto del vacío.
-- [ ] **T6 — Pegamento en `app.js` (pintar + refresco + aria)**. RF: RF-1, RF-2, RF-6, RF-8.
+- [x] **T6 — Pegamento en `app.js` (pintar + refresco + aria)**. RF: RF-1, RF-2, RF-6, RF-8.
   Hecho cuando: registrar 3 sesiones (hoy/ayer/anteayer) actualiza el mapa sin
   recargar con niveles correctos, cada celda tiene su `aria-label` en español
   y la consola está limpia.
 
 ## Fase 3 — Verificación final
 
-- [ ] **T7 — Pase completo de criterios de finalización**. RF: todos.
+- [x] **T7 — Pase completo de criterios de finalización**. RF: todos.
   Hecho cuando: tests en verde, 0 errores de consola, 375 px legible sin
   scroll lateral, casos límite de la spec comprobados en el navegador y
   commit hecho.

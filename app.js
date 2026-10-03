@@ -12,6 +12,17 @@ const textoRacha = document.getElementById("racha");
 const textoMejorRacha = document.getElementById("mejor-racha");
 const textoMinutosSemana = document.getElementById("minutos-semana");
 const textoDiasMes = document.getElementById("dias-mes");
+const mapa = document.getElementById("mapa");
+
+const NOMBRES_MES = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+  "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+const NOMBRES_NIVEL = {
+  vacio: "vacío",
+  suave: "suave",
+  medio: "medio",
+  intenso: "intenso",
+  futuro: "día futuro"
+};
 
 // Devuelve la fecha de hoy en formato "AAAA-MM-DD" usando la hora local.
 function hoyLocal() {
@@ -168,6 +179,27 @@ function formatoCorto(texto) {
   return partes[2] + "/" + partes[1] + "/" + partes[0];
 }
 
+// Muestra la fecha "AAAA-MM-DD" como "3 de octubre de 2026".
+function formatoLargo(texto) {
+  const partes = texto.split("-");
+  const dia = Number(partes[2]);
+  const mes = NOMBRES_MES[Number(partes[1]) - 1];
+  return dia + " de " + mes + " de " + partes[0];
+}
+
+// Pinta el mapa de calor con las sesiones guardadas.
+// Cada celda solo muestra color: el detalle va en el aria-label en español.
+function mostrarMapa(sesiones) {
+  const celdas = heatmapData(sesiones, hoyLocal());
+  mapa.innerHTML = "";
+  celdas.forEach(function (celda) {
+    const item = document.createElement("li");
+    item.className = "nivel-" + celda.level;
+    item.setAttribute("aria-label", formatoLargo(celda.date) + ", " + NOMBRES_NIVEL[celda.level]);
+    mapa.appendChild(item);
+  });
+}
+
 function mostrar() {
   const sesiones = cargarSesiones();
 
@@ -184,6 +216,7 @@ function mostrar() {
   textoMejorRacha.textContent = calcularMejorRacha(sesiones);
   textoMinutosSemana.textContent = calcularMinutosSemana(sesiones);
   textoDiasMes.textContent = calcularDiasMes(sesiones);
+  mostrarMapa(sesiones);
 
   lista.innerHTML = "";
   textoVacio.hidden = sesiones.length > 0;

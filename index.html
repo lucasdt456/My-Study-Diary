@@ -35,6 +35,18 @@
     </section>
 
     <section class="tarjeta">
+      <h2>Mapa de calor</h2>
+      <ul id="mapa" class="mapa-rejilla" aria-label="Mapa de calor de las últimas 12 semanas"></ul>
+      <ul class="leyenda" aria-label="Leyenda del mapa de calor">
+        <li><span class="muestra nivel-vacio" aria-hidden="true"></span>Vacío</li>
+        <li><span class="muestra nivel-suave" aria-hidden="true"></span>Suave</li>
+        <li><span class="muestra nivel-medio" aria-hidden="true"></span>Medio</li>
+        <li><span class="muestra nivel-intenso" aria-hidden="true"></span>Intenso</li>
+        <li><span class="muestra nivel-futuro" aria-hidden="true"></span>Día futuro</li>
+      </ul>
+    </section>
+
+    <section class="tarjeta">
       <h2>Nueva sesión</h2>
       <form id="formulario">
         <label for="fecha">📅 Fecha</label>
@@ -59,6 +71,7 @@
     </section>
   </main>
 
+  <script src="logica.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
