@@ -39,4 +39,8 @@ nunca se sube).
 se quitó `--executablePath` tras instalar el .deb de Google.
 
 ## Próximos pasos
-- (vacío por ahora)
+- QA a spec 001 (04/10/2026): detectadas ambigüedades (ejes de la rejilla,
+refresco sin recarga, "día pasado" vs hoy), contradicciones (RF-2 suma
+incondicional vs RF-4 futuros; caso "sin sesiones" vs atenuados; falta
+puerta de tests en finalización) y silencios (compatibilidad legacy,
+accesibilidad sin tooltips). Ver conversación.
