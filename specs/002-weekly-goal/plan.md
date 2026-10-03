@@ -72,8 +72,8 @@ guardar objetivo (RF-4).
 ## Decisiones técnicas (y alternativa descartada)
 
 1. **Meta en clave propia (`diario-estudio-objetivo`), no dentro del array
-de sesiones**: las sesiones son sagradas y su formato no cambia (RF-7 de
-spec 002 y fuera de alcance). *Descartado*: guardar la meta junto a las
+de sesiones**: las sesiones son sagradas y su formato no cambia (fuera de
+alcance en la spec). *Descartado*: guardar la meta junto a las
 sesiones (rozaría el formato y obligaría a migrar datos).
 2. **`weeklyMinutes` nueva en vez de reutilizar `calcularMinutosSemana`**:
 la existente lee "hoy" de dentro y no es testeable con `today` como
@@ -96,8 +96,8 @@ mostrar) o al final (quedaría escondido).
 - **Puerta**: primero `logica.js` + `test-objetivo.js` en verde; la interfaz
 después. Prohibido avanzar en rojo.
 - **Casos** (`today` fijado como texto):
-  - `weeklyMinutes`: suma lunes–hoy; excluye domingo anterior, hoy futuro y
-fechas ilegibles; semana vacía → 0; `today` en lunes → solo ese día.
+  - `weeklyMinutes`: suma lunes–hoy; excluye domingo anterior, sesiones
+futuras e ilegibles; semana vacía → 0; `today` en lunes → solo ese día.
   - `isValidGoal`: 1 y 10080 válidos; 0, -5, 2.5, 10081, texto y vacío no
 válidos.
   - `goalStatus`: 300/300 cumplido con 0 restantes; 320/300 cumplido;
