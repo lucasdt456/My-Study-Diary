@@ -3,8 +3,8 @@
 Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo que ya no aporte.
 
 ## Estado actual
-- Spec 001 (mapa de calor) completa y sin dudas: 12 semanas naturales lun–dom,
-debajo de los marcadores, leyenda con solo etiquetas. Lista para el plan.
+- Spec 001 (mapa de calor) completa, QA de 20 puntos resuelto, sin dudas:
+lista para el plan.
 - v1 + mejor racha + fecha destacada + total semanal + días del mes + diseño cuaderno:
 registrar sesiones, racha actual, mejor racha, minutos semanales, días del mes y lista.
 - Datos en localStorage, clave `diario-estudio-sesiones`.
@@ -39,7 +39,7 @@ nunca se sube).
 se quitó `--executablePath` tras instalar el .deb de Google.
 
 ## Próximos pasos
-- QA a spec 001 (04/10/2026): detectadas ambigüedades (ejes de la rejilla,
+- QA a spec 001 (03/10/2026): detectadas ambigüedades (ejes de la rejilla,
 refresco sin recarga, "día pasado" vs hoy), contradicciones (RF-2 suma
 incondicional vs RF-4 futuros; caso "sin sesiones" vs atenuados; falta
 puerta de tests en finalización) y silencios (compatibilidad legacy,
