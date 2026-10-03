@@ -3,12 +3,12 @@
 Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo que ya no aporte.
 
 ## Estado actual
+- Spec 002 en borrador: objetivo semanal en minutos (semana lun–dom, entero
+1–10080, mismo objetivo entre semanas, progreso `X de Y min`).
 - Spec 001 terminada: mapa de calor con 12 semanas, 19 tests en verde,
-verificado en Chrome a 375 px (84 celdas, niveles, aria, consola limpia).
-- v1 + mejor racha + fecha destacada + total semanal + días del mes + diseño cuaderno:
-registrar sesiones, racha actual, mejor racha, minutos semanales, días del mes y lista.
-- Datos en localStorage, clave `diario-estudio-sesiones`.
-- Git iniciado: repo en `main`, primer commit con la base + `.gitignore`.
+verificado en Chrome a 375 px.
+- Base: racha, mejor racha, minutos semanales, días del mes y lista; clave
+`diario-estudio-sesiones`; repo en `main`.
 
 ## Decisiones (y por qué)
 - Sin backend ni dependencias: cualquiera debe poder abrirlo con doble clic.
