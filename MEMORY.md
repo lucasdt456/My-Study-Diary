@@ -39,6 +39,8 @@ nunca se sube).
 se quitó `--executablePath` tras instalar el .deb de Google.
 
 ## Próximos pasos
+- 4 agentes en `.opencode/agents/` refactorizados (YAML roto, resto de
+pegado, indentación y blancos unificados).
 - Skill sdd + 6 comandos revisados y corregidos (typos, espacios, newlines).
 - QA a spec 001 (03/10/2026): detectadas ambigüedades (ejes de la rejilla,
 refresco sin recarga, "día pasado" vs hoy), contradicciones (RF-2 suma
