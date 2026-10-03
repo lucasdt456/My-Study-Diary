@@ -31,6 +31,8 @@ nunca se sube).
 - Nunca `toISOString()` ni `new Date("AAAA-MM-DD")`: usan UTC y desplazan el día.
 - Fechas futuras no suman: filtrar con `dia <= hoyLocal()` (texto AAAA-MM-DD ordena bien).
 - Varias sesiones el mismo día = 1 día: usar `Set` de días únicos.
+- Probado 03/10/2026 en Chromium a 375 px: 3 sesiones (hoy/ayer/anteayer) →
+racha 3, mejor 3, 0 errores de consola.
 
 ## Próximos pasos
 - (vacío por ahora)
