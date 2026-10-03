@@ -33,6 +33,8 @@ nunca se sube).
 - Varias sesiones el mismo día = 1 día: usar `Set` de días únicos.
 - Probado 03/10/2026 en Chromium a 375 px: 3 sesiones (hoy/ayer/anteayer) →
 racha 3, mejor 3, 0 errores de consola.
+- chrome-devtools-mcp necesita `--executablePath` (no hay Chrome estable; el
+chromium de apt es un shim de snap roto aquí) y `--headless` (sin pantalla).
 
 ## Próximos pasos
 - (vacío por ahora)
