@@ -59,9 +59,10 @@ y `new Date("AAAA-MM-DD")` (RF-7).
 ## Cómo se pinta en la interfaz
 
 - Tarjeta "🎯 Objetivo semanal" con: formulario (etiqueta, número con
-`min="1"`, `max="10080"`, `step="1"` y botón "Guardar objetivo"), línea de
-progreso (`X de Y min`) y línea de estado ("Te faltan Z min" o
-"¡Objetivo cumplido! 🎉").
+`step="1"` y botón "Guardar objetivo"), línea de progreso (`X de Y min`) y
+línea de estado ("Te faltan Z min" o "¡Objetivo cumplido! 🎉"). Sin
+`min`/`max` en el HTML para que toda entrada pase por la misma validación
+visible en JS.
 - Sin meta guardada: se muestra el formulario y los minutos actuales de la
 semana, sin progreso ni estado (caso límite de la spec).
 - Valor no válido: mensaje de error junto al formulario; se conserva la meta
@@ -79,10 +80,11 @@ sesiones (rozaría el formato y obligaría a migrar datos).
 la existente lee "hoy" de dentro y no es testeable con `today` como
 parámetro (constitución 3). *Descartado*: testear la existente (imposible
 sin fecha real) o duplicar su cuerpo en el test (no protegería el código).
-3. **Límite 10080 documentado en spec y validado en lógica y formulario**:
-minutos máximos de una semana; el HTML lo sugiere y la función pura lo
-impone. *Descartado*: sin límite (metas absurdas) o solo límite HTML
-(saltable desde consola).
+3. **Límite 10080 documentado en spec e impuesto solo en la lógica**: la
+función pura es el único validador (el HTML no lleva `min`/`max` para que
+toda entrada pase por el mismo error visible). *Descartado*: sin límite
+(metas absurdas) o límite solo HTML (bloqueo nativo invisible e
+inconsistente).
 4. **Sin meta inicial**: respeta "poder fijar" sin imponer una meta ajena;
 el editor visible invita a fijarla. *Descartado*: meta por defecto 300
 (cambiaría el comportamiento sin que el usuario lo pidiera).

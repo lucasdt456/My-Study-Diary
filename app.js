@@ -1,5 +1,7 @@
 // Clave donde guardamos las sesiones en localStorage.
 const CLAVE = "diario-estudio-sesiones";
+// Clave propia del objetivo semanal: las sesiones no se tocan nunca.
+const CLAVE_OBJETIVO = "diario-estudio-objetivo";
 
 const formulario = document.getElementById("formulario");
 const campoFecha = document.getElementById("fecha");
@@ -13,6 +15,11 @@ const textoMejorRacha = document.getElementById("mejor-racha");
 const textoMinutosSemana = document.getElementById("minutos-semana");
 const textoDiasMes = document.getElementById("dias-mes");
 const mapa = document.getElementById("mapa");
+const formularioObjetivo = document.getElementById("formulario-objetivo");
+const campoObjetivo = document.getElementById("objetivo");
+const mensajeErrorObjetivo = document.getElementById("error-objetivo");
+const textoProgreso = document.getElementById("progreso");
+const textoEstadoObjetivo = document.getElementById("estado-objetivo");
 
 const NOMBRES_MES = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
   "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
@@ -200,6 +207,41 @@ function mostrarMapa(sesiones) {
   });
 }
 
+// Lee el objetivo semanal guardado. Devuelve null si no hay ninguno válido.
+function cargarObjetivo() {
+  const valor = Number(localStorage.getItem(CLAVE_OBJETIVO));
+  if (isValidGoal(valor)) {
+    return valor;
+  }
+  return null;
+}
+
+function guardarObjetivo(valor) {
+  localStorage.setItem(CLAVE_OBJETIVO, String(valor));
+}
+
+// Pinta el objetivo semanal y su progreso.
+// Sin objetivo muestra el editor y los minutos actuales, sin progreso ni estado.
+function mostrarObjetivo(sesiones) {
+  const objetivo = cargarObjetivo();
+  const minutos = weeklyMinutes(sesiones, hoyLocal());
+
+  if (objetivo === null) {
+    textoProgreso.textContent = minutos + " min esta semana. Fija un objetivo para medir tu progreso.";
+    textoEstadoObjetivo.textContent = "";
+    return;
+  }
+
+  const estado = goalStatus(minutos, objetivo);
+  textoProgreso.textContent = minutos + " de " + objetivo + " min";
+  textoEstadoObjetivo.classList.toggle("cumplido", estado.done);
+  if (estado.done) {
+    textoEstadoObjetivo.textContent = "¡Objetivo cumplido! 🎉";
+  } else {
+    textoEstadoObjetivo.textContent = "Te faltan " + estado.remaining + " min";
+  }
+}
+
 function mostrar() {
   const sesiones = cargarSesiones();
 
@@ -217,6 +259,7 @@ function mostrar() {
   textoMinutosSemana.textContent = calcularMinutosSemana(sesiones);
   textoDiasMes.textContent = calcularDiasMes(sesiones);
   mostrarMapa(sesiones);
+  mostrarObjetivo(sesiones);
 
   lista.innerHTML = "";
   textoVacio.hidden = sesiones.length > 0;
@@ -248,6 +291,23 @@ function mostrarError(mensaje) {
   mensajeError.textContent = mensaje;
   mensajeError.hidden = false;
 }
+
+formularioObjetivo.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+  mensajeErrorObjetivo.hidden = true;
+
+  const valor = Number(campoObjetivo.value);
+
+  if (!isValidGoal(valor)) {
+    mensajeErrorObjetivo.textContent = "Escribe un número entero entre 1 y 10080.";
+    mensajeErrorObjetivo.hidden = false;
+    return;
+  }
+
+  guardarObjetivo(valor);
+  campoObjetivo.value = "";
+  mostrar();
+});
 
 formulario.addEventListener("submit", function (evento) {
   evento.preventDefault();

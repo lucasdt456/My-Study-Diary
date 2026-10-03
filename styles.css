@@ -227,6 +227,22 @@ ul {
   margin-bottom: 0;
 }
 
+.progreso {
+  font-weight: bold;
+  margin: 12px 0 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.estado-objetivo {
+  margin: 0;
+  color: var(--tinta-suave);
+}
+
+.estado-objetivo.cumplido {
+  color: var(--azul);
+  font-weight: bold;
+}
+
 /* Mapa de calor: 12 columnas (semanas) x 7 filas (lunes arriba).
 Las celdas se rellenan por columnas en orden cronológico. */
 .mapa-rejilla {

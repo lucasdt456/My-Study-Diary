@@ -3,8 +3,8 @@
 Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo que ya no aporte.
 
 ## Estado actual
-- Spec 002 aprobada + plan + `tasks.md` (6 tareas), revisada sin
-ambigüedades pendientes. Lista para implementar T1 tras tu visto bueno.
+- Spec 002 terminada: objetivo semanal con meta propia, 27 tests en verde,
+verificado en Chrome a 375 px (progreso, estados, error, consola limpia).
 - Spec 001 terminada: mapa de calor con 12 semanas, 19 tests en verde,
 verificado en Chrome a 375 px.
 - Base: racha, mejor racha, minutos semanales, días del mes y lista; clave

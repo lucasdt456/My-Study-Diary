@@ -35,6 +35,20 @@
     </section>
 
     <section class="tarjeta">
+      <h2>🎯 Objetivo semanal</h2>
+      <form id="formulario-objetivo">
+        <label for="objetivo">Meta en minutos</label>
+        <input type="number" id="objetivo" name="objetivo" step="1" placeholder="Por ejemplo: 300">
+
+        <p class="error" id="error-objetivo" hidden></p>
+
+        <button type="submit">Guardar objetivo</button>
+      </form>
+      <p class="progreso" id="progreso"></p>
+      <p class="estado-objetivo" id="estado-objetivo"></p>
+    </section>
+
+    <section class="tarjeta">
       <h2>Mapa de calor</h2>
       <ul id="mapa" class="mapa-rejilla" aria-label="Mapa de calor de las últimas 12 semanas"></ul>
       <ul class="leyenda" aria-label="Leyenda del mapa de calor">
